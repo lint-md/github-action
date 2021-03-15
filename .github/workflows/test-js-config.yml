@@ -1,0 +1,21 @@
+name: Test Js Config
+
+on:
+  push:
+    branches:
+      - test-github-action
+
+jobs:
+  test-action-works:
+    runs-on: ubuntu-latest
+    name: test js config
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: test js config
+        uses: ./
+        with:
+          files: './examples/js-config'
+          failOnWarnings: true
+          configFile: './examples/js-config/.lintmdrc.js'

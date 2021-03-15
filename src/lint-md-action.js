@@ -35,7 +35,7 @@ class LintMdAction {
 
     // JavaScript 模块，直接 require
     if (configPath.endsWith('.js')) {
-      return require(configPath)
+      return require(`${configPath}`)
     }
     const content = fs.readFileSync(configPath).toString()
     return JSON.parse(content)
@@ -44,7 +44,8 @@ class LintMdAction {
   isPass() {
     const result = this.linter ? this.linter.errorCount() : {}
     const noErrorAndWarn = result.error === 0 && result.warning === 0
-    return core.getInput('failOnWarnings') ? noErrorAndWarn : result.error === 0
+    // 注意这里的 getInput 返回值为 string
+    return core.getInput('failOnWarnings') === 'true' ? noErrorAndWarn : result.error === 0
   }
 
   async lint() {

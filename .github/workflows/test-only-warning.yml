@@ -1,0 +1,19 @@
+name: Test Only Warning
+
+on:
+  push:
+    branches:
+      - test-github-action
+jobs:
+  test-action-works:
+    runs-on: ubuntu-latest
+    name: test only warning
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: test only warning
+        uses: ./
+        with:
+          files: './examples/only-warning'
+          configFile: './examples/only-warning/.lintmdrc'
