@@ -1,0 +1,20 @@
+name: Test Use Custom Config
+
+on:
+  push:
+    branches:
+      - test-github-action
+
+jobs:
+  test-action-works:
+    runs-on: ubuntu-latest
+    name: test use custom config
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: test use custom config
+        uses: ./
+        with:
+          files: './examples/use-custom-config'
+          failOnWarnings: true
+          configFile: './examples/use-custom-config/hello'
