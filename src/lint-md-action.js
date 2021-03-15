@@ -35,7 +35,7 @@ class LintMdAction {
 
     // JavaScript 模块，直接 require
     if (configPath.endsWith('.js')) {
-      return require(configPath)
+      return require(`${configPath}`)
     }
     const content = fs.readFileSync(configPath).toString()
     return JSON.parse(content)
