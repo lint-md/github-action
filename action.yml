@@ -1,0 +1,21 @@
+name: '@lint-md/github-action'
+
+description: 'lint-md service for github action'
+
+inputs:
+  configFile:
+    description: 'Lint-md configuration file path.'
+    required: false
+    default: '.lintmdrc'
+  failOnWarnings:
+    description: 'Whether you want to fail on warnings or not.'
+    default: "false"
+    required: false
+  files:
+    description: 'You can pass in multiple directories to be checked, separated by spaces.'
+    required: false
+    default: './'
+
+runs:
+  using: node12
+  main: './dist/index.js'
