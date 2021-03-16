@@ -1,5 +1,4 @@
-name: '@lint-md/github-action'
-
+name: 'lint-md-github-action'
 description: 'lint-md service for github action'
 
 inputs:
