@@ -29,7 +29,10 @@ jobs:
 - 类型：`string`
 - 默认值：`.lintmdrc`
 
-您的 lint-md 配置文件的路径。如果工作目录下没有任何配置文件，我们使用[默认的规则](https://github.com/lint-md/lint-md#rules-%E9%85%8D%E7%BD%AE)
+您的 lint-md 配置文件的路径，支持 `json` 或者 JavaScript 模块。
+
+
+如果工作目录下没有任何配置文件，我们使用[默认的规则](https://github.com/lint-md/lint-md#rules-%E9%85%8D%E7%BD%AE)
 
 ### failOnWarnings
 
