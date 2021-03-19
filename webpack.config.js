@@ -7,6 +7,8 @@
  */
 
 const TerserPlugin = require('terser-webpack-plugin')
+const WebpackNodeDynamicPlugin = require('./src/utils/plugin')
+const path = require('path')
 
 module.exports = {
   entry: './src/index.js',
@@ -17,8 +19,9 @@ module.exports = {
     'node'
   ],
   mode: 'production',
+  devtool: false,
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         terserOptions: {
@@ -29,5 +32,16 @@ module.exports = {
         extractComments: false
       })
     ]
-  }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: path.resolve(__dirname, 'src', 'utils', 'loader.js')
+      }
+    ]
+  },
+  plugins: [
+    new WebpackNodeDynamicPlugin()
+  ]
 }
