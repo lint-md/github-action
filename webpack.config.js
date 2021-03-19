@@ -37,7 +37,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: path.resolve(__dirname, 'src', 'utils', 'foo-loader.js')
+        loader: path.resolve(__dirname, 'src', 'utils', 'loader.js')
       }
     ]
   },

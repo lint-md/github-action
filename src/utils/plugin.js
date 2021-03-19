@@ -1,3 +1,11 @@
+ /*
+  * File: plugin.js
+  * Description: 处理动态 require 的插件
+  * Created: 2021-3-19 09:46:42
+  * Author: yuzhanglong
+  * Email: yuzl1123@163.com
+  */
+
 const { RawSource } = require('webpack-sources')
 
 class Plugin {
