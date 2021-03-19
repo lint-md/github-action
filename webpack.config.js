@@ -7,8 +7,7 @@
  */
 
 const TerserPlugin = require('terser-webpack-plugin')
-const WebpackNodeDynamicPlugin = require('./src/utils/plugin')
-const path = require('path')
+const NodeRequireWebpackPlugin = require('node-require-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -33,15 +32,7 @@ module.exports = {
       })
     ]
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: path.resolve(__dirname, 'src', 'utils', 'loader.js')
-      }
-    ]
-  },
   plugins: [
-    new WebpackNodeDynamicPlugin()
+    new NodeRequireWebpackPlugin()
   ]
 }
