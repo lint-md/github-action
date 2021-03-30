@@ -1,6 +1,6 @@
 function __WEBPACK_PURE_REQUIRE__(content) {
   /******/ return require(content)
-}
+} 
 
 
 /******/ (() => { // webpackBootstrap
@@ -622,7 +622,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fix = void 0;
 var path = __webpack_require__(/*! path */ "path");
 var fs = __webpack_require__(/*! fs */ "fs");
-var core_1 = __webpack_require__(/*! @lint-md/core */ "./node_modules/@lint-md/core/esm/index.js");
+var core_1 = __webpack_require__(/*! @lint-md/core */ "./node_modules/@lint-md/core/lib/index.js");
 var fix = function (filePath, config) {
     var rules = config ? config.rules : {};
     return new Promise(function (resolve) {
@@ -785,7 +785,7 @@ exports.Lint = void 0;
 var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 var chalk = __webpack_require__(/*! chalk */ "./node_modules/chalk/source/index.js");
 var load_md_files_1 = __webpack_require__(/*! ../helper/load-md-files */ "./node_modules/@lint-md/cli/lib/helper/load-md-files.js");
-var core_1 = __webpack_require__(/*! @lint-md/core */ "./node_modules/@lint-md/core/esm/index.js");
+var core_1 = __webpack_require__(/*! @lint-md/core */ "./node_modules/@lint-md/core/lib/index.js");
 var lint_1 = __webpack_require__(/*! ./lint */ "./node_modules/@lint-md/cli/lib/Lint/lint.js");
 var string_1 = __webpack_require__(/*! ../helper/string */ "./node_modules/@lint-md/cli/lib/helper/string.js");
 var common_1 = __webpack_require__(/*! ../helper/common */ "./node_modules/@lint-md/cli/lib/helper/common.js");
@@ -880,7 +880,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.lint = void 0;
 var path = __webpack_require__(/*! path */ "path");
 var fs = __webpack_require__(/*! fs */ "fs");
-var core_1 = __webpack_require__(/*! @lint-md/core */ "./node_modules/@lint-md/core/esm/index.js");
+var core_1 = __webpack_require__(/*! @lint-md/core */ "./node_modules/@lint-md/core/lib/index.js");
 var lint = function (filePath, config) {
     var rules = config ? config.rules : {};
     return new Promise(function (resolve) {
@@ -1008,34 +1008,31 @@ Object.defineProperty(exports, "Fix", ({ enumerable: true, get: function () { re
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/common/constants.js":
+/***/ "./node_modules/@lint-md/core/lib/common/constants.js":
 /*!************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/common/constants.js ***!
+  !*** ./node_modules/@lint-md/core/lib/common/constants.js ***!
   \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FIX_RETRY_MAX_COUNT": () => (/* binding */ FIX_RETRY_MAX_COUNT)
-/* harmony export */ });
-var FIX_RETRY_MAX_COUNT = 20;
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FIX_RETRY_MAX_COUNT = void 0;
+exports.FIX_RETRY_MAX_COUNT = 20;
 //# sourceMappingURL=constants.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/description/en_US.js":
+/***/ "./node_modules/@lint-md/core/lib/description/en_US.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/description/en_US.js ***!
+  !*** ./node_modules/@lint-md/core/lib/description/en_US.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.default = {
     'space-round-alphabet': {
         message: 'No space between Chinese and alphabet.'
     },
@@ -1090,61 +1087,54 @@ __webpack_require__.r(__webpack_exports__);
     'no-long-code': {
         message: 'Code Block cannot have too long line.',
     },
-});
+};
 //# sourceMappingURL=en_US.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/description/index.js":
+/***/ "./node_modules/@lint-md/core/lib/description/index.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/description/index.js ***!
+  !*** ./node_modules/@lint-md/core/lib/description/index.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getDescription": () => (/* binding */ getDescription)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _en_US__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./en_US */ "./node_modules/@lint-md/core/esm/description/en_US.js");
 
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getDescription = void 0;
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var en_US_1 = __webpack_require__(/*! ./en_US */ "./node_modules/@lint-md/core/lib/description/en_US.js");
 var Descriptions = {
-    en_US: _en_US__WEBPACK_IMPORTED_MODULE_1__.default
+    en_US: en_US_1.default
 };
 var getDescription = function (type, lang) {
     if (!lang) {
         lang = 'en_US';
     }
-    return lodash__WEBPACK_IMPORTED_MODULE_0__.get(Descriptions, [lang, type]);
+    return _.get(Descriptions, [lang, type]);
 };
+exports.getDescription = getDescription;
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/helper/string.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/helper/string.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/helper/string.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/helper/string.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "insertSpace": () => (/* binding */ insertSpace)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _lint_rules_helper_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lint-rules/helper/string */ "./node_modules/@lint-md/core/esm/lint-rules/helper/string.js");
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from) {
+
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
     for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
         to[j] = from[i];
     return to;
 };
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.insertSpace = void 0;
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var string_1 = __webpack_require__(/*! ../../lint-rules/helper/string */ "./node_modules/@lint-md/core/lib/lint-rules/helper/string.js");
 var matches = [
     'ZA', 'AZ',
     'ZN', 'NZ'
@@ -1161,144 +1151,118 @@ var splice = function (s, start, deleteCount) {
 var insertSpace = function (string) {
     var tmp = string;
     for (var i = 0; i < tmp.length; i++) {
-        var s = (0,_lint_rules_helper_string__WEBPACK_IMPORTED_MODULE_1__.stringType)(tmp.substr(i, 2));
-        if (lodash__WEBPACK_IMPORTED_MODULE_0__.includes(matches, s)) {
+        var s = string_1.stringType(tmp.substr(i, 2));
+        if (_.includes(matches, s)) {
             tmp = splice(tmp, i + 1, 0, ' ');
         }
     }
     return tmp;
 };
+exports.insertSpace = insertSpace;
 //# sourceMappingURL=string.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/index.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/index.js":
 /*!***********************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/index.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/index.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "fixRules": () => (/* binding */ fixRules)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _no_empty_blockquote__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./no-empty-blockquote */ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-blockquote.js");
-/* harmony import */ var _no_empty_code__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./no-empty-code */ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-code.js");
-/* harmony import */ var _no_empty_code_lang__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./no-empty-code-lang */ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-code-lang.js");
-/* harmony import */ var _use_standard_ellipsis__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./use-standard-ellipsis */ "./node_modules/@lint-md/core/esm/fix-rules/use-standard-ellipsis.js");
-/* harmony import */ var _space_round_number__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./space-round-number */ "./node_modules/@lint-md/core/esm/fix-rules/space-round-number.js");
-/* harmony import */ var _space_round_alphabet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./space-round-alphabet */ "./node_modules/@lint-md/core/esm/fix-rules/space-round-alphabet.js");
-/* harmony import */ var _no_trailing_punctuation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./no-trailing-punctuation */ "./node_modules/@lint-md/core/esm/fix-rules/no-trailing-punctuation.js");
-/* harmony import */ var _no_special_characters__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./no-special-characters */ "./node_modules/@lint-md/core/esm/fix-rules/no-special-characters.js");
-/* harmony import */ var _no_space_in_link__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./no-space-in-link */ "./node_modules/@lint-md/core/esm/fix-rules/no-space-in-link.js");
-/* harmony import */ var _no_space_in_inlinecode__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./no-space-in-inlinecode */ "./node_modules/@lint-md/core/esm/fix-rules/no-space-in-inlinecode.js");
-/* harmony import */ var _no_space_in_emphasis__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./no-space-in-emphasis */ "./node_modules/@lint-md/core/esm/fix-rules/no-space-in-emphasis.js");
-/* harmony import */ var _no_multiple_space_blockquote__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./no-multiple-space-blockquote */ "./node_modules/@lint-md/core/esm/fix-rules/no-multiple-space-blockquote.js");
-/* harmony import */ var _no_fullwidth_number__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./no-fullwidth-number */ "./node_modules/@lint-md/core/esm/fix-rules/no-fullwidth-number.js");
-/* harmony import */ var _no_empty_list__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./no-empty-list */ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-list.js");
-/* harmony import */ var _no_empty_url__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./no-empty-url */ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-url.js");
-/* harmony import */ var _no_empty_inlinecode__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./no-empty-inlinecode */ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-inlinecode.js");
-/* harmony import */ var _no_empty_delete__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./no-empty-delete */ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-delete.js");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.fixRules = void 0;
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var no_empty_blockquote_1 = __webpack_require__(/*! ./no-empty-blockquote */ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-blockquote.js");
+var no_empty_code_1 = __webpack_require__(/*! ./no-empty-code */ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-code.js");
+var no_empty_code_lang_1 = __webpack_require__(/*! ./no-empty-code-lang */ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-code-lang.js");
+var use_standard_ellipsis_1 = __webpack_require__(/*! ./use-standard-ellipsis */ "./node_modules/@lint-md/core/lib/fix-rules/use-standard-ellipsis.js");
+var space_round_number_1 = __webpack_require__(/*! ./space-round-number */ "./node_modules/@lint-md/core/lib/fix-rules/space-round-number.js");
+var space_round_alphabet_1 = __webpack_require__(/*! ./space-round-alphabet */ "./node_modules/@lint-md/core/lib/fix-rules/space-round-alphabet.js");
+var no_trailing_punctuation_1 = __webpack_require__(/*! ./no-trailing-punctuation */ "./node_modules/@lint-md/core/lib/fix-rules/no-trailing-punctuation.js");
+var no_special_characters_1 = __webpack_require__(/*! ./no-special-characters */ "./node_modules/@lint-md/core/lib/fix-rules/no-special-characters.js");
+var no_space_in_link_1 = __webpack_require__(/*! ./no-space-in-link */ "./node_modules/@lint-md/core/lib/fix-rules/no-space-in-link.js");
+var no_space_in_inlinecode_1 = __webpack_require__(/*! ./no-space-in-inlinecode */ "./node_modules/@lint-md/core/lib/fix-rules/no-space-in-inlinecode.js");
+var no_space_in_emphasis_1 = __webpack_require__(/*! ./no-space-in-emphasis */ "./node_modules/@lint-md/core/lib/fix-rules/no-space-in-emphasis.js");
+var no_multiple_space_blockquote_1 = __webpack_require__(/*! ./no-multiple-space-blockquote */ "./node_modules/@lint-md/core/lib/fix-rules/no-multiple-space-blockquote.js");
+var no_fullwidth_number_1 = __webpack_require__(/*! ./no-fullwidth-number */ "./node_modules/@lint-md/core/lib/fix-rules/no-fullwidth-number.js");
+var no_empty_list_1 = __webpack_require__(/*! ./no-empty-list */ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-list.js");
+var no_empty_url_1 = __webpack_require__(/*! ./no-empty-url */ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-url.js");
+var no_empty_inlinecode_1 = __webpack_require__(/*! ./no-empty-inlinecode */ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-inlinecode.js");
+var no_empty_delete_1 = __webpack_require__(/*! ./no-empty-delete */ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-delete.js");
 var Rules = {
-    'no-empty-blockquote': _no_empty_blockquote__WEBPACK_IMPORTED_MODULE_1__.default,
-    'no-empty-code': _no_empty_code__WEBPACK_IMPORTED_MODULE_2__.default,
-    'no-empty-code-lang': _no_empty_code_lang__WEBPACK_IMPORTED_MODULE_3__.default,
-    'no-empty-delete': _no_empty_delete__WEBPACK_IMPORTED_MODULE_17__.default,
-    'no-empty-inlinecode': _no_empty_inlinecode__WEBPACK_IMPORTED_MODULE_16__.default,
-    'no-empty-list': _no_empty_list__WEBPACK_IMPORTED_MODULE_14__.default,
-    'no-empty-url': _no_empty_url__WEBPACK_IMPORTED_MODULE_15__.default,
-    'no-fullwidth-number': _no_fullwidth_number__WEBPACK_IMPORTED_MODULE_13__.default,
-    'no-multiple-space-blockquote': _no_multiple_space_blockquote__WEBPACK_IMPORTED_MODULE_12__.default,
-    'no-space-in-emphasis': _no_space_in_emphasis__WEBPACK_IMPORTED_MODULE_11__.default,
-    'no-space-in-inlinecode': _no_space_in_inlinecode__WEBPACK_IMPORTED_MODULE_10__.default,
-    'no-space-in-link': _no_space_in_link__WEBPACK_IMPORTED_MODULE_9__.default,
-    'no-special-characters': _no_special_characters__WEBPACK_IMPORTED_MODULE_8__.default,
-    'no-trailing-punctuation': _no_trailing_punctuation__WEBPACK_IMPORTED_MODULE_7__.default,
-    'space-round-alphabet': _space_round_alphabet__WEBPACK_IMPORTED_MODULE_6__.default,
-    'space-round-number': _space_round_number__WEBPACK_IMPORTED_MODULE_5__.default,
-    'use-standard-ellipsis': _use_standard_ellipsis__WEBPACK_IMPORTED_MODULE_4__.default
+    'no-empty-blockquote': no_empty_blockquote_1.default,
+    'no-empty-code': no_empty_code_1.default,
+    'no-empty-code-lang': no_empty_code_lang_1.default,
+    'no-empty-delete': no_empty_delete_1.default,
+    'no-empty-inlinecode': no_empty_inlinecode_1.default,
+    'no-empty-list': no_empty_list_1.default,
+    'no-empty-url': no_empty_url_1.default,
+    'no-fullwidth-number': no_fullwidth_number_1.default,
+    'no-multiple-space-blockquote': no_multiple_space_blockquote_1.default,
+    'no-space-in-emphasis': no_space_in_emphasis_1.default,
+    'no-space-in-inlinecode': no_space_in_inlinecode_1.default,
+    'no-space-in-link': no_space_in_link_1.default,
+    'no-special-characters': no_special_characters_1.default,
+    'no-trailing-punctuation': no_trailing_punctuation_1.default,
+    'space-round-alphabet': space_round_alphabet_1.default,
+    'space-round-number': space_round_number_1.default,
+    'use-standard-ellipsis': use_standard_ellipsis_1.default
 };
 var fixRules = function (markdown, error) {
     var type = error.type;
-    var func = lodash__WEBPACK_IMPORTED_MODULE_0__.get(Rules, [type]);
+    var func = _.get(Rules, [type]);
     if (func) {
         return func(markdown, error);
     }
     return markdown;
 };
+exports.fixRules = fixRules;
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-blockquote.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-blockquote.js":
 /*!*************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-empty-blockquote.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-empty-blockquote.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start;
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown).removeLine(start.line).result();
+    return new Text_1.default(markdown).removeLine(start.line).result();
 });
 //# sourceMappingURL=no-empty-blockquote.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-code-lang.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-code-lang.js":
 /*!************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-empty-code-lang.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-empty-code-lang.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start;
     var line = start.line;
-    var text = new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown);
+    var text = new Text_1.default(markdown);
     var lineText = text.getLine(line);
-    var replaceText = lodash__WEBPACK_IMPORTED_MODULE_0__.trimEnd(lineText) + "plain";
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown)
+    var replaceText = _.trimEnd(lineText) + "plain";
+    return new Text_1.default(markdown)
         .removeLine(line)
         .insertLines(line - 1, replaceText).result();
 });
@@ -1306,126 +1270,109 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-code.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-code.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-empty-code.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-empty-code.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown).removeBlock(start, end).result();
+    return new Text_1.default(markdown).removeBlock(start, end).result();
 });
 //# sourceMappingURL=no-empty-code.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-delete.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-delete.js":
 /*!*********************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-empty-delete.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-empty-delete.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown).removeBlock(start, end).result();
+    return new Text_1.default(markdown).removeBlock(start, end).result();
 });
 //# sourceMappingURL=no-empty-delete.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-inlinecode.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-inlinecode.js":
 /*!*************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-empty-inlinecode.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-empty-inlinecode.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown).removeBlock(start, end).result();
+    return new Text_1.default(markdown).removeBlock(start, end).result();
 });
 //# sourceMappingURL=no-empty-inlinecode.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-list.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-list.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-empty-list.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-empty-list.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start;
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown).removeLine(start.line).result();
+    return new Text_1.default(markdown).removeLine(start.line).result();
 });
 //# sourceMappingURL=no-empty-list.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-empty-url.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-empty-url.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-empty-url.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-empty-url.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var _a = ast.node, position = _a.position, type = _a.type;
     var start = position.start, end = position.end;
-    var text = new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown);
+    var text = new Text_1.default(markdown);
     var md;
     if (type === 'image') {
         var alt = ast.node.alt;
         md = "![" + alt + "](.)";
     }
     else {
-        var title = lodash__WEBPACK_IMPORTED_MODULE_0__.get(ast.node, 'children[0].value', '');
+        var title = _.get(ast.node, 'children[0].value', '');
         md = "[" + title + "](.)";
     }
     text.removeBlock(start, end);
@@ -1436,22 +1383,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-fullwidth-number.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-fullwidth-number.js":
 /*!*************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-fullwidth-number.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-fullwidth-number.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
 var FullwidthNumberMap = {
     '１': 1,
     '２': 2,
@@ -1464,16 +1406,16 @@ var FullwidthNumberMap = {
     '９': 9,
     '０': 0,
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
     var string = ast.segment();
     var newString = string
         .split('')
-        .map(function (s) { return "" + lodash__WEBPACK_IMPORTED_MODULE_0__.get(FullwidthNumberMap, s, s); })
+        .map(function (s) { return "" + _.get(FullwidthNumberMap, s, s); })
         .join('');
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown)
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1482,31 +1424,26 @@ var FullwidthNumberMap = {
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-multiple-space-blockquote.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-multiple-space-blockquote.js":
 /*!**********************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-multiple-space-blockquote.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-multiple-space-blockquote.js ***!
   \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start;
     var line = start.line;
-    var text = new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown);
+    var text = new Text_1.default(markdown);
     var lineText = text.getLine(line);
     lineText = lineText.substring(lineText.indexOf('>') + 1);
-    lineText = "> " + lodash__WEBPACK_IMPORTED_MODULE_0__.trim(lineText);
+    lineText = "> " + _.trim(lineText);
     return text
         .removeLine(line)
         .insertLines(line - 1, lineText)
@@ -1516,29 +1453,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-space-in-emphasis.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-space-in-emphasis.js":
 /*!**************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-space-in-emphasis.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-space-in-emphasis.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
     var string = ast.segment();
-    var newString = "**" + lodash__WEBPACK_IMPORTED_MODULE_0__.trim(string, '* ') + "**";
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown)
+    var newString = "**" + _.trim(string, '* ') + "**";
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1547,29 +1479,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-space-in-inlinecode.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-space-in-inlinecode.js":
 /*!****************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-space-in-inlinecode.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-space-in-inlinecode.js ***!
   \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
     var string = ast.segment();
-    var newString = "`" + lodash__WEBPACK_IMPORTED_MODULE_0__.trim(string, '` ') + "`";
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown)
+    var newString = "`" + _.trim(string, '` ') + "`";
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1578,32 +1505,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-space-in-link.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-space-in-link.js":
 /*!**********************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-space-in-link.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-space-in-link.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
 
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
-    var textPosition = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.getChildrenPosition)(ast.node);
+    var textPosition = ast_1.getChildrenPosition(ast.node);
     var start = textPosition.start, end = textPosition.end;
-    var text = new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown);
+    var text = new Text_1.default(markdown);
     var string = text.getBlock(start, end);
-    var newString = lodash__WEBPACK_IMPORTED_MODULE_0__.trim(string);
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown)
+    var newString = _.trim(string);
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1612,21 +1533,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-special-characters.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-special-characters.js":
 /*!***************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-special-characters.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-special-characters.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
 var SpecialCharacters = ['\b'];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
@@ -1634,7 +1552,7 @@ var SpecialCharacters = ['\b'];
     var newString = string.split('')
         .filter(function (s) { return SpecialCharacters.indexOf(s) === -1; })
         .join('');
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown)
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1643,32 +1561,26 @@ var SpecialCharacters = ['\b'];
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/no-trailing-punctuation.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/no-trailing-punctuation.js":
 /*!*****************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/no-trailing-punctuation.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/no-trailing-punctuation.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
 
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 var Symbols = '.,;:!?。，；：！？…~*`';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+exports.default = (function (markdown, error) {
     var ast = error.ast;
-    var last = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.getLastChildLeaf)(ast.node);
+    var last = ast_1.getLastChildLeaf(ast.node);
     var value = last.value, position = last.position;
     var start = position.start, end = position.end;
-    var newString = lodash__WEBPACK_IMPORTED_MODULE_0__.trimEnd(value, Symbols);
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_1__.default(markdown)
+    var newString = _.trimEnd(value, Symbols);
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1677,28 +1589,24 @@ var Symbols = '.,;:!?。，；：！？…~*`';
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/space-round-alphabet.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/space-round-alphabet.js":
 /*!**************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/space-round-alphabet.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/space-round-alphabet.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
-/* harmony import */ var _helper_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/esm/fix-rules/helper/string.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+var string_1 = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/lib/fix-rules/helper/string.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
     var string = ast.segment();
-    var newString = (0,_helper_string__WEBPACK_IMPORTED_MODULE_1__.insertSpace)(string);
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown)
+    var newString = string_1.insertSpace(string);
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1707,28 +1615,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/space-round-number.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/space-round-number.js":
 /*!************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/space-round-number.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/space-round-number.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
-/* harmony import */ var _helper_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/esm/fix-rules/helper/string.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+var string_1 = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/lib/fix-rules/helper/string.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast;
     var position = ast.node.position;
     var start = position.start, end = position.end;
     var string = ast.segment();
-    var newString = (0,_helper_string__WEBPACK_IMPORTED_MODULE_1__.insertSpace)(string);
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown)
+    var newString = string_1.insertSpace(string);
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, newString)
         .result();
@@ -1737,22 +1641,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix-rules/use-standard-ellipsis.js":
+/***/ "./node_modules/@lint-md/core/lib/fix-rules/use-standard-ellipsis.js":
 /*!***************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix-rules/use-standard-ellipsis.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix-rules/use-standard-ellipsis.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _helper_Text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/esm/helper/Text.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (markdown, error) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var Text_1 = __webpack_require__(/*! ../helper/Text */ "./node_modules/@lint-md/core/lib/helper/Text.js");
+exports.default = (function (markdown, error) {
     var ast = error.ast, start = error.start, end = error.end;
-    return new _helper_Text__WEBPACK_IMPORTED_MODULE_0__.default(markdown)
+    return new Text_1.default(markdown)
         .removeBlock(start, end)
         .insertBlock(start.line, start.column, '……')
         .result();
@@ -1761,32 +1662,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/fix.js":
+/***/ "./node_modules/@lint-md/core/lib/fix.js":
 /*!***********************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/fix.js ***!
+  !*** ./node_modules/@lint-md/core/lib/fix.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "fix": () => (/* binding */ fix)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _lint__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lint */ "./node_modules/@lint-md/core/esm/lint.js");
-/* harmony import */ var _fix_rules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fix-rules */ "./node_modules/@lint-md/core/esm/fix-rules/index.js");
-/* harmony import */ var _common_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/constants */ "./node_modules/@lint-md/core/esm/common/constants.js");
 
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.fix = void 0;
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var lint_1 = __webpack_require__(/*! ./lint */ "./node_modules/@lint-md/core/lib/lint.js");
+var fix_rules_1 = __webpack_require__(/*! ./fix-rules */ "./node_modules/@lint-md/core/lib/fix-rules/index.js");
+var constants_1 = __webpack_require__(/*! ./common/constants */ "./node_modules/@lint-md/core/lib/common/constants.js");
 var fix = function (markdown, rulesConfig) {
     var newMarkdown = markdown;
-    var retryMax = _common_constants__WEBPACK_IMPORTED_MODULE_3__.FIX_RETRY_MAX_COUNT;
+    var retryMax = constants_1.FIX_RETRY_MAX_COUNT;
     var errorCnt = Infinity;
     while (true) {
-        var errors = (0,_lint__WEBPACK_IMPORTED_MODULE_1__.lint)(newMarkdown, rulesConfig || {}, true);
+        var errors = lint_1.lint(newMarkdown, rulesConfig || {}, true);
         var newErrorCnt = errors.length;
         if (newErrorCnt === 0) {
             break;
@@ -1797,32 +1692,31 @@ var fix = function (markdown, rulesConfig) {
                 break;
             }
         }
-        var e = errors[lodash__WEBPACK_IMPORTED_MODULE_0__.random(newErrorCnt - 1)];
-        newMarkdown = (0,_fix_rules__WEBPACK_IMPORTED_MODULE_2__.fixRules)(newMarkdown, e);
+        var e = errors[_.random(newErrorCnt - 1)];
+        newMarkdown = fix_rules_1.fixRules(newMarkdown, e);
         errorCnt = newErrorCnt;
     }
     return newMarkdown;
 };
+exports.fix = fix;
 //# sourceMappingURL=fix.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/helper/Text.js":
+/***/ "./node_modules/@lint-md/core/lib/helper/Text.js":
 /*!*******************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/helper/Text.js ***!
+  !*** ./node_modules/@lint-md/core/lib/helper/Text.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from) {
+
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
     for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
         to[j] = from[i];
     return to;
 };
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 var Text = (function () {
     function Text(text) {
         this.texts = text.split('\n').map(function (line) { return line.split(''); });
@@ -1903,32 +1797,26 @@ var Text = (function () {
     };
     return Text;
 }());
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Text);
+exports.default = Text;
 //# sourceMappingURL=Text.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/helper/ast.js":
+/***/ "./node_modules/@lint-md/core/lib/helper/ast.js":
 /*!******************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/helper/ast.js ***!
+  !*** ./node_modules/@lint-md/core/lib/helper/ast.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "astPositionTrans": () => (/* binding */ astPositionTrans),
-/* harmony export */   "getChildrenPosition": () => (/* binding */ getChildrenPosition),
-/* harmony export */   "getLastChildLeaf": () => (/* binding */ getLastChildLeaf),
-/* harmony export */   "astToText": () => (/* binding */ astToText)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.astToText = exports.getLastChildLeaf = exports.getChildrenPosition = exports.astPositionTrans = void 0;
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 var astPointTrans = function (point) {
     return {
-        line: lodash__WEBPACK_IMPORTED_MODULE_0__.get(point, 'line', 0),
-        column: lodash__WEBPACK_IMPORTED_MODULE_0__.get(point, 'column', 0),
+        line: _.get(point, 'line', 0),
+        column: _.get(point, 'column', 0),
     };
 };
 var astPositionTrans = function (pos) {
@@ -1937,95 +1825,93 @@ var astPositionTrans = function (pos) {
         end: astPointTrans(pos.end),
     };
 };
+exports.astPositionTrans = astPositionTrans;
 var getChildrenPosition = function (node) {
-    var children = lodash__WEBPACK_IMPORTED_MODULE_0__.get(node, 'children', []);
+    var children = _.get(node, 'children', []);
     if (children.length === 0) {
-        return astPositionTrans(node.position);
+        return exports.astPositionTrans(node.position);
     }
-    var start = astPointTrans(lodash__WEBPACK_IMPORTED_MODULE_0__.get(lodash__WEBPACK_IMPORTED_MODULE_0__.head(children), 'position.start', {}));
-    var end = astPointTrans(lodash__WEBPACK_IMPORTED_MODULE_0__.get(lodash__WEBPACK_IMPORTED_MODULE_0__.last(children), 'position.end', {}));
+    var start = astPointTrans(_.get(_.head(children), 'position.start', {}));
+    var end = astPointTrans(_.get(_.last(children), 'position.end', {}));
     return {
         start: start,
         end: end,
     };
 };
+exports.getChildrenPosition = getChildrenPosition;
 var getLastChildLeaf = function (node) {
-    var leaf = lodash__WEBPACK_IMPORTED_MODULE_0__.last(lodash__WEBPACK_IMPORTED_MODULE_0__.get(node, 'children', []));
+    var leaf = _.last(_.get(node, 'children', []));
     if (leaf !== undefined)
-        return getLastChildLeaf(leaf);
+        return exports.getLastChildLeaf(leaf);
     return node;
 };
+exports.getLastChildLeaf = getLastChildLeaf;
 var astToText = function (node) {
-    var type = lodash__WEBPACK_IMPORTED_MODULE_0__.get(node, 'type');
+    var type = _.get(node, 'type');
     if (['text', 'inlineCode', 'html'].indexOf(type) !== -1)
         return node.value;
-    var childrenText = lodash__WEBPACK_IMPORTED_MODULE_0__.get(node, 'children', []).map(astToText);
+    var childrenText = _.get(node, 'children', []).map(exports.astToText);
     return childrenText.join('');
 };
+exports.astToText = astToText;
 //# sourceMappingURL=ast.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/index.js":
+/***/ "./node_modules/@lint-md/core/lib/index.js":
 /*!*************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/index.js ***!
+  !*** ./node_modules/@lint-md/core/lib/index.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "lint": () => (/* reexport safe */ _lint__WEBPACK_IMPORTED_MODULE_0__.lint),
-/* harmony export */   "fix": () => (/* reexport safe */ _fix__WEBPACK_IMPORTED_MODULE_1__.fix),
-/* harmony export */   "getDescription": () => (/* reexport safe */ _description__WEBPACK_IMPORTED_MODULE_2__.getDescription)
-/* harmony export */ });
-/* harmony import */ var _lint__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lint */ "./node_modules/@lint-md/core/esm/lint.js");
-/* harmony import */ var _fix__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fix */ "./node_modules/@lint-md/core/esm/fix.js");
-/* harmony import */ var _description__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./description */ "./node_modules/@lint-md/core/esm/description/index.js");
 
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getDescription = exports.fix = exports.lint = void 0;
+var lint_1 = __webpack_require__(/*! ./lint */ "./node_modules/@lint-md/core/lib/lint.js");
+Object.defineProperty(exports, "lint", ({ enumerable: true, get: function () { return lint_1.lint; } }));
+var fix_1 = __webpack_require__(/*! ./fix */ "./node_modules/@lint-md/core/lib/fix.js");
+Object.defineProperty(exports, "fix", ({ enumerable: true, get: function () { return fix_1.fix; } }));
+var description_1 = __webpack_require__(/*! ./description */ "./node_modules/@lint-md/core/lib/description/index.js");
+Object.defineProperty(exports, "getDescription", ({ enumerable: true, get: function () { return description_1.getDescription; } }));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/helper/rule.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/helper/rule.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/helper/rule.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/helper/rule.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ruleToLevel": () => (/* binding */ ruleToLevel)
-/* harmony export */ });
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ruleToLevel = void 0;
 var ruleToLevel = function (rule) {
     return rule === 0 ? 'info' :
         rule === 1 ? 'warning' : 'error';
 };
+exports.ruleToLevel = ruleToLevel;
 //# sourceMappingURL=rule.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/helper/space-rule.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/helper/space-rule.js":
 /*!************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/helper/space-rule.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/helper/space-rule.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./string */ "./node_modules/@lint-md/core/esm/lint-rules/helper/string.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (ast, matches, cb) {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var string_1 = __webpack_require__(/*! ./string */ "./node_modules/@lint-md/core/lib/lint-rules/helper/string.js");
+exports.default = (function (ast, matches, cb) {
     var text = ast.node.value;
     var line = ast.node.position.start.line;
     var column = ast.node.position.start.column;
-    var typeText = (0,_string__WEBPACK_IMPORTED_MODULE_0__.stringType)(text);
+    var typeText = string_1.stringType(text);
     for (var i = 0; i < typeText.length; i++) {
         var s = typeText.substr(i, 2);
         if (matches.indexOf(s) !== -1) {
@@ -2038,7 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
                     line: line,
                     column: column + i + 2
                 },
-                text: "'" + (0,_string__WEBPACK_IMPORTED_MODULE_0__.subErrorStr)(text, i, 12) + "'",
+                text: "'" + string_1.subErrorStr(text, i, 12) + "'",
                 ast: ast
             });
         }
@@ -2048,22 +1934,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/helper/string.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/helper/string.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/helper/string.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/helper/string.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "charType": () => (/* binding */ charType),
-/* harmony export */   "stringType": () => (/* binding */ stringType),
-/* harmony export */   "subErrorStr": () => (/* binding */ subErrorStr),
-/* harmony export */   "substr": () => (/* binding */ substr),
-/* harmony export */   "startSpaceLen": () => (/* binding */ startSpaceLen),
-/* harmony export */   "endSpaceLen": () => (/* binding */ endSpaceLen)
-/* harmony export */ });
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.endSpaceLen = exports.startSpaceLen = exports.substr = exports.subErrorStr = exports.stringType = exports.charType = void 0;
 var isChinese = function (s) {
     return /^[\u4e00-\u9fa5]{1}$/.test(s);
 };
@@ -2078,18 +1958,22 @@ var charType = function (c) {
         isAlphabet(c) ? 'A' :
             isChinese(c) ? 'Z' : '-';
 };
+exports.charType = charType;
 var stringType = function (s) {
-    return s.split('').map(function (s) { return charType(s); }).join('');
+    return s.split('').map(function (s) { return exports.charType(s); }).join('');
 };
+exports.stringType = stringType;
 var subErrorStr = function (s, index, length) {
     return s.substr(Math.max(index - Math.floor(length / 2), 0), length);
 };
+exports.subErrorStr = subErrorStr;
 var substr = function (s, len) {
     if (len === void 0) { len = 12; }
     if (!s)
         return s;
     return s.length > len ? s.substr(0, len) + "..." : s;
 };
+exports.substr = substr;
 var startSpaceLen = function (str) {
     var len = 0;
     var array = str.split('');
@@ -2103,6 +1987,7 @@ var startSpaceLen = function (str) {
     }
     return len;
 };
+exports.startSpaceLen = startSpaceLen;
 var endSpaceLen = function (str) {
     var len = 0;
     var array = str.split('');
@@ -2116,49 +2001,45 @@ var endSpaceLen = function (str) {
     }
     return len;
 };
+exports.endSpaceLen = endSpaceLen;
 //# sourceMappingURL=string.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/index.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/index.js":
 /*!************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/index.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/index.js ***!
   \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helper_rule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper/rule */ "./node_modules/@lint-md/core/esm/lint-rules/helper/rule.js");
 
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var rule_1 = __webpack_require__(/*! ./helper/rule */ "./node_modules/@lint-md/core/lib/lint-rules/helper/rule.js");
 var PluginClasses = [
-    __webpack_require__(/*! ./space-round-alphabet */ "./node_modules/@lint-md/core/esm/lint-rules/space-round-alphabet.js"),
-    __webpack_require__(/*! ./space-round-number */ "./node_modules/@lint-md/core/esm/lint-rules/space-round-number.js"),
-    __webpack_require__(/*! ./no-empty-code-lang */ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-code-lang.js"),
-    __webpack_require__(/*! ./no-empty-delete */ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-delete.js"),
-    __webpack_require__(/*! ./no-empty-url */ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-url.js"),
-    __webpack_require__(/*! ./no-empty-list */ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-list.js"),
-    __webpack_require__(/*! ./no-empty-code */ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-code.js"),
-    __webpack_require__(/*! ./no-empty-inlinecode */ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-inlinecode.js"),
-    __webpack_require__(/*! ./no-empty-blockquote */ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-blockquote.js"),
-    __webpack_require__(/*! ./no-special-characters */ "./node_modules/@lint-md/core/esm/lint-rules/no-special-characters.js"),
-    __webpack_require__(/*! ./use-standard-ellipsis */ "./node_modules/@lint-md/core/esm/lint-rules/use-standard-ellipsis.js"),
-    __webpack_require__(/*! ./no-fullwidth-number */ "./node_modules/@lint-md/core/esm/lint-rules/no-fullwidth-number.js"),
-    __webpack_require__(/*! ./no-space-in-emphasis */ "./node_modules/@lint-md/core/esm/lint-rules/no-space-in-emphasis.js"),
-    __webpack_require__(/*! ./no-space-in-link */ "./node_modules/@lint-md/core/esm/lint-rules/no-space-in-link.js"),
-    __webpack_require__(/*! ./no-multiple-space-blockquote */ "./node_modules/@lint-md/core/esm/lint-rules/no-multiple-space-blockquote.js"),
-    __webpack_require__(/*! ./no-space-in-inlinecode */ "./node_modules/@lint-md/core/esm/lint-rules/no-space-in-inlinecode.js"),
-    __webpack_require__(/*! ./no-trailing-punctuation */ "./node_modules/@lint-md/core/esm/lint-rules/no-trailing-punctuation.js"),
-    __webpack_require__(/*! ./no-long-code */ "./node_modules/@lint-md/core/esm/lint-rules/no-long-code.js")
+    __webpack_require__(/*! ./space-round-alphabet */ "./node_modules/@lint-md/core/lib/lint-rules/space-round-alphabet.js"),
+    __webpack_require__(/*! ./space-round-number */ "./node_modules/@lint-md/core/lib/lint-rules/space-round-number.js"),
+    __webpack_require__(/*! ./no-empty-code-lang */ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-code-lang.js"),
+    __webpack_require__(/*! ./no-empty-delete */ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-delete.js"),
+    __webpack_require__(/*! ./no-empty-url */ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-url.js"),
+    __webpack_require__(/*! ./no-empty-list */ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-list.js"),
+    __webpack_require__(/*! ./no-empty-code */ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-code.js"),
+    __webpack_require__(/*! ./no-empty-inlinecode */ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-inlinecode.js"),
+    __webpack_require__(/*! ./no-empty-blockquote */ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-blockquote.js"),
+    __webpack_require__(/*! ./no-special-characters */ "./node_modules/@lint-md/core/lib/lint-rules/no-special-characters.js"),
+    __webpack_require__(/*! ./use-standard-ellipsis */ "./node_modules/@lint-md/core/lib/lint-rules/use-standard-ellipsis.js"),
+    __webpack_require__(/*! ./no-fullwidth-number */ "./node_modules/@lint-md/core/lib/lint-rules/no-fullwidth-number.js"),
+    __webpack_require__(/*! ./no-space-in-emphasis */ "./node_modules/@lint-md/core/lib/lint-rules/no-space-in-emphasis.js"),
+    __webpack_require__(/*! ./no-space-in-link */ "./node_modules/@lint-md/core/lib/lint-rules/no-space-in-link.js"),
+    __webpack_require__(/*! ./no-multiple-space-blockquote */ "./node_modules/@lint-md/core/lib/lint-rules/no-multiple-space-blockquote.js"),
+    __webpack_require__(/*! ./no-space-in-inlinecode */ "./node_modules/@lint-md/core/lib/lint-rules/no-space-in-inlinecode.js"),
+    __webpack_require__(/*! ./no-trailing-punctuation */ "./node_modules/@lint-md/core/lib/lint-rules/no-trailing-punctuation.js"),
+    __webpack_require__(/*! ./no-long-code */ "./node_modules/@lint-md/core/lib/lint-rules/no-long-code.js")
 ];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (throwError, rules) {
+exports.default = (function (throwError, rules) {
     var rulesConfig = {};
-    lodash__WEBPACK_IMPORTED_MODULE_0__.forEach(PluginClasses, function (Plugin) {
+    _.forEach(PluginClasses, function (Plugin) {
         rulesConfig[Plugin.type] = {
             level: 2
         };
@@ -2170,9 +2051,9 @@ var PluginClasses = [
             config: config
         };
     });
-    var Plugins = lodash__WEBPACK_IMPORTED_MODULE_0__.filter(PluginClasses, function (Plugin) { return rulesConfig[Plugin.type].level !== 0; });
-    return lodash__WEBPACK_IMPORTED_MODULE_0__.map(Plugins, function (Plugin) {
-        var level = (0,_helper_rule__WEBPACK_IMPORTED_MODULE_1__.ruleToLevel)(rulesConfig[Plugin.type].level);
+    var Plugins = _.filter(PluginClasses, function (Plugin) { return rulesConfig[Plugin.type].level !== 0; });
+    return _.map(Plugins, function (Plugin) {
+        var level = rule_1.ruleToLevel(rulesConfig[Plugin.type].level);
         var throwErrorFunc = function (error) {
             error.level = level;
             error.type = Plugin.type;
@@ -2185,18 +2066,15 @@ var PluginClasses = [
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-blockquote.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-blockquote.js":
 /*!**************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-empty-blockquote.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-empty-blockquote.js ***!
   \**************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2211,7 +2089,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -2222,8 +2100,9 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -2242,7 +2121,7 @@ module.exports = (function (_super) {
             blockquote: function (ast) {
                 var children = ast.node.children;
                 if (!children || children.length === 0) {
-                    var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_1__.getChildrenPosition)(ast.node);
+                    var pos = ast_1.getChildrenPosition(ast.node);
                     _this.cfg.throwError(__assign(__assign({}, pos), { text: '', ast: ast }));
                 }
             }
@@ -2253,22 +2132,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-empty-blockquote.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-code-lang.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-code-lang.js":
 /*!*************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-empty-code-lang.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-empty-code-lang.js ***!
   \*************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2283,7 +2160,8 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
 module.exports = (function (_super) {
     __extends(exports, _super);
     function exports() {
@@ -2325,23 +2203,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-empty-code-lang.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-code.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-code.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-empty-code.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-empty-code.js ***!
   \********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2356,7 +2231,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -2367,8 +2242,9 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -2384,7 +2260,7 @@ module.exports = (function (_super) {
     class_1.prototype.emptyCode = function (ast) {
         var value = ast.node.value;
         if (!value || !value.trim()) {
-            var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_1__.getChildrenPosition)(ast.node);
+            var pos = ast_1.getChildrenPosition(ast.node);
             this.cfg.throwError(__assign(__assign({}, pos), { text: '', ast: ast }));
         }
     };
@@ -2401,23 +2277,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-empty-code.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-delete.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-delete.js":
 /*!**********************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-empty-delete.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-empty-delete.js ***!
   \**********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2432,7 +2305,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -2443,8 +2316,9 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -2462,7 +2336,7 @@ module.exports = (function (_super) {
         return {
             delete: function (ast) {
                 if (ast.node.children.length === 0) {
-                    var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_1__.getChildrenPosition)(ast.node);
+                    var pos = ast_1.getChildrenPosition(ast.node);
                     _this.cfg.throwError(__assign(__assign({}, pos), { text: '', ast: ast }));
                 }
             }
@@ -2473,23 +2347,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-empty-delete.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-inlinecode.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-inlinecode.js":
 /*!**************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-empty-inlinecode.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-empty-inlinecode.js ***!
   \**************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2504,7 +2375,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -2515,8 +2386,9 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -2532,7 +2404,7 @@ module.exports = (function (_super) {
     class_1.prototype.emptyCode = function (ast) {
         var value = ast.node.value;
         if (!value || !value.trim()) {
-            var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_1__.getChildrenPosition)(ast.node);
+            var pos = ast_1.getChildrenPosition(ast.node);
             this.cfg.throwError(__assign(__assign({}, pos), { text: '', ast: ast }));
         }
     };
@@ -2549,23 +2421,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-empty-inlinecode.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-list.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-list.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-empty-list.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-empty-list.js ***!
   \********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2580,7 +2449,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -2591,8 +2460,9 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -2611,7 +2481,7 @@ module.exports = (function (_super) {
             listItem: function (ast) {
                 var children = ast.node.children;
                 if (!children || children.length === 0) {
-                    var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_1__.getChildrenPosition)(ast.node);
+                    var pos = ast_1.getChildrenPosition(ast.node);
                     _this.cfg.throwError(__assign(__assign({}, pos), { text: '', ast: ast }));
                 }
             }
@@ -2622,22 +2492,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-empty-list.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-empty-url.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-empty-url.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-empty-url.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-empty-url.js ***!
   \*******************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2652,7 +2520,8 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
 module.exports = (function (_super) {
     __extends(exports, _super);
     function exports() {
@@ -2695,22 +2564,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-empty-url.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-fullwidth-number.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-fullwidth-number.js":
 /*!**************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-fullwidth-number.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-fullwidth-number.js ***!
   \**************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2725,7 +2592,8 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
 var findAllNumbers = function (s) {
     var re = new RegExp('[0-9０-９]{1,}', 'g');
     var r = [];
@@ -2790,22 +2658,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-fullwidth-number.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-long-code.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-long-code.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-long-code.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-long-code.js ***!
   \*******************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2820,7 +2686,8 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
 var defaultConfig = {
     length: 100,
     exclude: []
@@ -2872,26 +2739,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-long-code.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-multiple-space-blockquote.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-multiple-space-blockquote.js":
 /*!***********************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-multiple-space-blockquote.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-multiple-space-blockquote.js ***!
   \***********************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* harmony import */ var _helper_string__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/esm/lint-rules/helper/string.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2906,10 +2767,11 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
+var string_1 = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/lib/lint-rules/helper/string.js");
 module.exports = (function (_super) {
     __extends(exports, _super);
     function exports() {
@@ -2926,10 +2788,10 @@ module.exports = (function (_super) {
         var _this = this;
         return {
             blockquote: function (ast) {
-                var text = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.astToText)(ast.node);
+                var text = ast_1.astToText(ast.node);
                 var line = ast.node.position.start.line;
                 var column = ast.node.position.start.column;
-                if (lodash__WEBPACK_IMPORTED_MODULE_1__.startsWith(text, ' ')) {
+                if (_.startsWith(text, ' ')) {
                     _this.cfg.throwError({
                         start: {
                             line: line,
@@ -2937,9 +2799,9 @@ module.exports = (function (_super) {
                         },
                         end: {
                             line: line,
-                            column: column + 1 + (0,_helper_string__WEBPACK_IMPORTED_MODULE_3__.startSpaceLen)(text)
+                            column: column + 1 + string_1.startSpaceLen(text)
                         },
-                        text: "'" + (0,_helper_string__WEBPACK_IMPORTED_MODULE_3__.substr)(text) + "'",
+                        text: "'" + string_1.substr(text) + "'",
                         ast: ast
                     });
                 }
@@ -2951,25 +2813,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-multiple-space-blockquote.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-space-in-emphasis.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-space-in-emphasis.js":
 /*!***************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-space-in-emphasis.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-space-in-emphasis.js ***!
   \***************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2984,7 +2841,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -2995,9 +2852,10 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -3014,9 +2872,9 @@ module.exports = (function (_super) {
         var _this = this;
         return {
             strong: function (ast) {
-                var text = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.astToText)(ast.node);
-                if (lodash__WEBPACK_IMPORTED_MODULE_1__.startsWith(text, ' ') || lodash__WEBPACK_IMPORTED_MODULE_1__.endsWith(text, ' ')) {
-                    var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.getChildrenPosition)(ast.node);
+                var text = ast_1.astToText(ast.node);
+                if (_.startsWith(text, ' ') || _.endsWith(text, ' ')) {
+                    var pos = ast_1.getChildrenPosition(ast.node);
                     _this.cfg.throwError(__assign(__assign({}, pos), { text: "'" + text + "'", ast: ast }));
                 }
             }
@@ -3027,25 +2885,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-space-in-emphasis.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-space-in-inlinecode.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-space-in-inlinecode.js":
 /*!*****************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-space-in-inlinecode.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-space-in-inlinecode.js ***!
   \*****************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3060,7 +2913,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -3071,9 +2924,10 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -3092,9 +2946,9 @@ module.exports = (function (_super) {
             inlineCode: function (ast) {
                 var node = ast.node;
                 var position = node.position;
-                var spec = lodash__WEBPACK_IMPORTED_MODULE_1__.trim(ast.segment(), '`');
-                if (lodash__WEBPACK_IMPORTED_MODULE_1__.head(spec) === ' ' || lodash__WEBPACK_IMPORTED_MODULE_1__.last(spec) === ' ') {
-                    var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.astPositionTrans)(position);
+                var spec = _.trim(ast.segment(), '`');
+                if (_.head(spec) === ' ' || _.last(spec) === ' ') {
+                    var pos = ast_1.astPositionTrans(position);
                     _this.cfg.throwError(__assign(__assign({}, pos), { text: "'" + spec + "'", ast: ast }));
                 }
             },
@@ -3105,25 +2959,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-space-in-inlinecode.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-space-in-link.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-space-in-link.js":
 /*!***********************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-space-in-link.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-space-in-link.js ***!
   \***********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3138,7 +2987,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (undefined && undefined.__assign) || function () {
+var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -3149,9 +2998,10 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 module.exports = (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -3168,9 +3018,9 @@ module.exports = (function (_super) {
         var _this = this;
         return {
             link: function (ast) {
-                var text = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.astToText)(ast.node);
-                if (lodash__WEBPACK_IMPORTED_MODULE_1__.startsWith(text, ' ') || lodash__WEBPACK_IMPORTED_MODULE_1__.endsWith(text, ' ')) {
-                    var pos = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.getChildrenPosition)(ast.node);
+                var text = ast_1.astToText(ast.node);
+                if (_.startsWith(text, ' ') || _.endsWith(text, ' ')) {
+                    var pos = ast_1.getChildrenPosition(ast.node);
                     _this.cfg.throwError(__assign(__assign({}, pos), { text: "'" + text + "'", ast: ast }));
                 }
             }
@@ -3181,23 +3031,20 @@ module.exports = (function (_super) {
     class_1.prototype.post = function () {
     };
     return class_1;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-space-in-link.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-special-characters.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-special-characters.js":
 /*!****************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-special-characters.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-special-characters.js ***!
   \****************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/esm/lint-rules/helper/string.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3212,8 +3059,9 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var string_1 = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/lib/lint-rules/helper/string.js");
 var SpecialCharacters = ['\b'];
 var showLength = 12;
 module.exports = (function (_super) {
@@ -3238,7 +3086,7 @@ module.exports = (function (_super) {
                 SpecialCharacters.forEach(function (sc) {
                     var idx = value.indexOf(sc);
                     if (idx !== -1) {
-                        var text = (0,_helper_string__WEBPACK_IMPORTED_MODULE_1__.subErrorStr)(value, idx, showLength);
+                        var text = string_1.subErrorStr(value, idx, showLength);
                         _this.cfg.throwError({
                             start: {
                                 line: line,
@@ -3261,25 +3109,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-special-characters.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/no-trailing-punctuation.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/no-trailing-punctuation.js":
 /*!******************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/no-trailing-punctuation.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/no-trailing-punctuation.js ***!
   \******************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _helper_ast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/esm/helper/ast.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3294,9 +3137,10 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var ast_1 = __webpack_require__(/*! ../helper/ast */ "./node_modules/@lint-md/core/lib/helper/ast.js");
 var Symbols = '.,;:!?。，；：！？…~*`';
 module.exports = (function (_super) {
     __extends(exports, _super);
@@ -3314,9 +3158,9 @@ module.exports = (function (_super) {
         var _this = this;
         return {
             heading: function (ast) {
-                var last = (0,_helper_ast__WEBPACK_IMPORTED_MODULE_2__.getLastChildLeaf)(ast.node);
+                var last = ast_1.getLastChildLeaf(ast.node);
                 var text = last.value;
-                if (lodash__WEBPACK_IMPORTED_MODULE_1__.includes(Symbols, lodash__WEBPACK_IMPORTED_MODULE_1__.last(lodash__WEBPACK_IMPORTED_MODULE_1__.trimEnd(text)))) {
+                if (_.includes(Symbols, _.last(_.trimEnd(text)))) {
                     var _a = last.position, start = _a.start, end = _a.end;
                     _this.cfg.throwError({
                         start: {
@@ -3339,23 +3183,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=no-trailing-punctuation.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/space-round-alphabet.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/space-round-alphabet.js":
 /*!***************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/space-round-alphabet.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/space-round-alphabet.js ***!
   \***************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_space_rule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper/space-rule */ "./node_modules/@lint-md/core/esm/lint-rules/helper/space-rule.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3370,8 +3211,9 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var space_rule_1 = __webpack_require__(/*! ./helper/space-rule */ "./node_modules/@lint-md/core/lib/lint-rules/helper/space-rule.js");
 var matches = ['ZA', 'AZ'];
 module.exports = (function (_super) {
     __extends(exports, _super);
@@ -3389,7 +3231,7 @@ module.exports = (function (_super) {
         var _this = this;
         return {
             text: function (ast) {
-                (0,_helper_space_rule__WEBPACK_IMPORTED_MODULE_1__.default)(ast, matches, _this.cfg.throwError);
+                space_rule_1.default(ast, matches, _this.cfg.throwError);
             }
         };
     };
@@ -3398,23 +3240,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=space-round-alphabet.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/space-round-number.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/space-round-number.js":
 /*!*************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/space-round-number.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/space-round-number.js ***!
   \*************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_space_rule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper/space-rule */ "./node_modules/@lint-md/core/esm/lint-rules/helper/space-rule.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3429,8 +3268,9 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var space_rule_1 = __webpack_require__(/*! ./helper/space-rule */ "./node_modules/@lint-md/core/lib/lint-rules/helper/space-rule.js");
 var matches = ['ZN', 'NZ'];
 module.exports = (function (_super) {
     __extends(exports, _super);
@@ -3448,7 +3288,7 @@ module.exports = (function (_super) {
         var _this = this;
         return {
             text: function (ast) {
-                (0,_helper_space_rule__WEBPACK_IMPORTED_MODULE_1__.default)(ast, matches, _this.cfg.throwError);
+                space_rule_1.default(ast, matches, _this.cfg.throwError);
             }
         };
     };
@@ -3457,23 +3297,20 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=space-round-number.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint-rules/use-standard-ellipsis.js":
+/***/ "./node_modules/@lint-md/core/lib/lint-rules/use-standard-ellipsis.js":
 /*!****************************************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint-rules/use-standard-ellipsis.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint-rules/use-standard-ellipsis.js ***!
   \****************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _helper_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/esm/lint-rules/helper/string.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-var __extends = (undefined && undefined.__extends) || (function () {
+
+var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3488,8 +3325,9 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var string_1 = __webpack_require__(/*! ./helper/string */ "./node_modules/@lint-md/core/lib/lint-rules/helper/string.js");
 var showLength = 14;
 var findAllSingleEllipsis = function (s) {
     var r = [];
@@ -3554,7 +3392,7 @@ module.exports = (function (_super) {
                             line: line,
                             column: column + item.index + item.length
                         },
-                        text: "'" + (0,_helper_string__WEBPACK_IMPORTED_MODULE_1__.subErrorStr)(text, item.index, showLength) + "'",
+                        text: "'" + string_1.subErrorStr(text, item.index, showLength) + "'",
                         ast: ast
                     });
                 });
@@ -3566,49 +3404,41 @@ module.exports = (function (_super) {
     exports.prototype.post = function () {
     };
     return exports;
-}(_lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_0__.Plugin));
+}(ast_plugin_1.Plugin));
 //# sourceMappingURL=use-standard-ellipsis.js.map
 
 /***/ }),
 
-/***/ "./node_modules/@lint-md/core/esm/lint.js":
+/***/ "./node_modules/@lint-md/core/lib/lint.js":
 /*!************************************************!*\
-  !*** ./node_modules/@lint-md/core/esm/lint.js ***!
+  !*** ./node_modules/@lint-md/core/lib/lint.js ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "lint": () => (/* binding */ lint)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var unified__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! unified */ "./node_modules/unified/index.js");
-/* harmony import */ var unified__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(unified__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var remark_parse__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! remark-parse */ "./node_modules/remark-parse/index.js");
-/* harmony import */ var remark_parse__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remark_parse__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
-/* harmony import */ var _lint_rules__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lint-rules */ "./node_modules/@lint-md/core/esm/lint-rules/index.js");
 
-
-
-
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.lint = void 0;
+var _ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+var unified = __webpack_require__(/*! unified */ "./node_modules/unified/index.js");
+var md = __webpack_require__(/*! remark-parse */ "./node_modules/remark-parse/index.js");
+var ast_plugin_1 = __webpack_require__(/*! @lint-md/ast-plugin */ "./node_modules/@lint-md/ast-plugin/esm/index.js");
+var lint_rules_1 = __webpack_require__(/*! ./lint-rules */ "./node_modules/@lint-md/core/lib/lint-rules/index.js");
 var lint = function (markdown, rulesConfig, containAst) {
     var errors = [];
     var throwFunc = function (error) {
         errors.push(error);
     };
-    var ast = unified__WEBPACK_IMPORTED_MODULE_1__()
-        .use(remark_parse__WEBPACK_IMPORTED_MODULE_2__)
+    var ast = unified()
+        .use(md)
         .parse(markdown);
-    var totalPlugins = (0,_lint_rules__WEBPACK_IMPORTED_MODULE_4__.default)(throwFunc, rulesConfig || {});
-    new _lint_md_ast_plugin__WEBPACK_IMPORTED_MODULE_3__.Ast(ast, undefined, markdown)
+    var totalPlugins = lint_rules_1.default(throwFunc, rulesConfig || {});
+    new ast_plugin_1.Ast(ast, undefined, markdown)
         .traverse(totalPlugins);
-    var es = lodash__WEBPACK_IMPORTED_MODULE_0__.uniqWith(errors, lodash__WEBPACK_IMPORTED_MODULE_0__.isEqual);
-    return containAst ? es : es.map(function (error) { return lodash__WEBPACK_IMPORTED_MODULE_0__.omit(error, ['ast']); });
+    var es = _.uniqWith(errors, _.isEqual);
+    return containAst ? es : es.map(function (error) { return _.omit(error, ['ast']); });
 };
+exports.lint = lint;
 //# sourceMappingURL=lint.js.map
 
 /***/ }),
@@ -34014,7 +33844,7 @@ module.exports = require("util");;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -34028,30 +33858,18 @@ module.exports = require("util");;
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -34063,7 +33881,7 @@ module.exports = require("util");;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -34075,21 +33893,12 @@ module.exports = require("util");;
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
-/******/ 	/* webpack/runtime/harmony module decorator */
-/******/ 	(() => {
-/******/ 		__webpack_require__.hmd = (module) => {
-/******/ 			module = Object.create(module);
-/******/ 			if (!module.children) module.children = [];
-/******/ 			return module;
-/******/ 		};
-/******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -34100,7 +33909,7 @@ module.exports = require("util");;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -34109,7 +33918,7 @@ module.exports = require("util");;
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.

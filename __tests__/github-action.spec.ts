@@ -7,7 +7,6 @@
  */
 
 
-
 import * as path from 'path'
 
 import { LintMdAction } from '../src/lint-md-action'
