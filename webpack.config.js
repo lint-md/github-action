@@ -8,6 +8,7 @@
 
 const TerserPlugin = require('terser-webpack-plugin')
 const NodeRequireWebpackPlugin = require('node-require-webpack-plugin')
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = (env, argv) => {
   const isDev = (argv.mode === 'development')
@@ -17,9 +18,10 @@ module.exports = (env, argv) => {
     output: {
       filename: './index.js'
     },
-    target: [
-      'node'
-    ],
+    externalsPresets: {
+      node: true
+    },
+    externals: [nodeExternals()],
     mode: isDev ? 'development' : 'production',
     devtool: false,
     optimization: {

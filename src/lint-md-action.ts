@@ -9,7 +9,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as core from '@actions/core'
-import { Lint, CliConfig } from '@lint-md/cli'
+import { Lint, CliConfig } from '@lint-md/cli/lib/index'
 
 export class LintMdAction {
   private readonly basePath: string

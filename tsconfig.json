@@ -1,17 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "ESNext",
     "module": "CommonJS",
     "moduleResolution": "Node",
     "removeComments": true,
-    "resolveJsonModule": true,
     "types": [
       "node",
       "jest"
     ],
     "allowJs": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "sourceMap": true,
     "baseUrl": "./"
   },
