@@ -6,14 +6,18 @@
  * Email: yuzl1123@163.com
  */
 
-require('babel-polyfill')
-const core = require('@actions/core')
-const path = require('path')
-const fs = require('fs')
-const ExtendLinter = require('./extend-linter')
+import * as core from '@actions/core'
+import * as fs from 'fs'
+import * as path from 'path'
+import { Lint, CliConfig } from '@lint-md/cli'
 
-class LintMdAction {
-  constructor(basePath) {
+export class LintMdAction {
+  private readonly basePath: string
+  private readonly config: CliConfig
+  private readonly lintFiles: string[]
+  private linter: Lint
+
+  constructor(basePath?: string) {
     if (!basePath) {
       this.basePath = process.env.GITHUB_WORKSPACE
     }
@@ -42,7 +46,11 @@ class LintMdAction {
   }
 
   isPass() {
-    const result = this.linter ? this.linter.errorCount() : {}
+    // 没有初始化直接调用 isPass, 返回 true
+    if (!this.linter) {
+      return true
+    }
+    const result = this.linter.countError()
     const noErrorAndWarn = result.error === 0 && result.warning === 0
     // 注意这里的 getInput 返回值为 string
     return core.getInput('failOnWarnings') === 'true' ? noErrorAndWarn : result.error === 0
@@ -50,7 +58,7 @@ class LintMdAction {
 
   async lint() {
     // 开始 lint
-    this.linter = new ExtendLinter(this.lintFiles, this.config)
+    this.linter = new Lint(this.lintFiles, this.config)
     await this.linter.start()
     return this
   }
@@ -71,8 +79,7 @@ class LintMdAction {
   }
 
   getErrors() {
-    return this.linter.getErrorFiles()
+    // @ts-ignore
+    return this.linter.errorFiles
   }
 }
-
-module.exports = LintMdAction

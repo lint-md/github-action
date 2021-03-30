@@ -1,8 +1,12 @@
-const core = require('@actions/core')
+import * as core from '@actions/core'
+
 
 // mock GitHub action 的用户参数
-const mockAction = (files, configFile, failOnWarnings) => {
+export const mockAction = (files?: string, configFile?: string, failOnWarnings?: string) => {
   jest.mock('@actions/core')
+
+  // mock getInput method
+  // @ts-ignore
   core.getInput = (arg) => {
     switch (arg) {
       case 'files':
@@ -10,11 +14,7 @@ const mockAction = (files, configFile, failOnWarnings) => {
       case 'configFile':
         return configFile || '.lintmdrc'
       case 'failOnWarnings':
-        return failOnWarnings || false
+        return failOnWarnings || 'false'
     }
   }
-}
-
-module.exports = {
-  mockAction
 }

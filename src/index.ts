@@ -1,12 +1,12 @@
 /*
- * File: index.js
+ * File: index.ts
  * Description: action 入口
  * Created: 2021-3-15 20:39:28
  * Author: yuzhanglong
  * Email: yuzl1123@163.com
  */
 
-const LintMdAction = require('./lint-md-action')
+import { LintMdAction } from './lint-md-action'
 
 const runAction = async () => {
   // init LintMdAction
