@@ -2,8 +2,7 @@
   "name": "@lint-md/github-action",
   "version": "0.1.0",
   "description": "github action for lint-md",
-  "module": "esm/index.js",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest --no-cache",
     "lint": "eslint --ext .ts --ext .tsx --max-warnings 0 ./src",
