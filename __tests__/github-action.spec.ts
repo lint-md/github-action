@@ -7,9 +7,11 @@
  */
 
 
-const path = require('path')
-const LintMdAction = require('../src/lint-md-action')
-const { mockAction } = require('../src/test-utils')
+import * as path from 'path'
+
+import { LintMdAction } from '../src/lint-md-action'
+
+import { mockAction } from '../src/test-utils'
 
 
 describe('lint-md GitHub action 测试', () => {
