@@ -9,30 +9,45 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const NodeRequireWebpackPlugin = require('node-require-webpack-plugin')
 
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    filename: './index.js'
-  },
-  target: [
-    'node'
-  ],
-  mode: 'production',
-  devtool: false,
-  optimization: {
-    minimize: false,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          format: {
-            comments: false
-          }
-        },
-        extractComments: false
-      })
-    ]
-  },
-  plugins: [
-    new NodeRequireWebpackPlugin()
-  ]
+module.exports = (env, argv) => {
+  const isDev = (argv.mode === 'development')
+
+  return {
+    entry: './src/index.ts',
+    output: {
+      filename: './index.js'
+    },
+    target: [
+      'node'
+    ],
+    mode: isDev ? 'development' : 'production',
+    devtool: false,
+    optimization: {
+      minimize: !isDev,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            format: {
+              comments: false
+            }
+          },
+          extractComments: false
+        })
+      ]
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: 'ts-loader'
+        }
+      ]
+    },
+    plugins: [
+      new NodeRequireWebpackPlugin()
+    ],
+    resolve: {
+      extensions: ['.ts', '.js']
+    }
+  }
 }

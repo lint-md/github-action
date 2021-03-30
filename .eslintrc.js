@@ -1,4 +1,5 @@
 module.exports = {
+  'parser': '@typescript-eslint/parser',
   'plugins': [
     '@typescript-eslint'
   ],
@@ -26,6 +27,7 @@ module.exports = {
   },
   'env': {
     'browser': true,
-    'node': true
+    'node': true,
+    'jest': true
   }
 }

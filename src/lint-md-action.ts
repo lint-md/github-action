@@ -1,14 +1,14 @@
 /*
- * File: lint-md-action.js
+ * File: lint-md-action.ts
  * Description: lint-md github action 核心逻辑
  * Created: 2021-3-15 22:23:51
  * Author: yuzhanglong
  * Email: yuzl1123@163.com
  */
 
-import * as core from '@actions/core'
 import * as fs from 'fs'
 import * as path from 'path'
+import * as core from '@actions/core'
 import { Lint, CliConfig } from '@lint-md/cli'
 
 export class LintMdAction {
