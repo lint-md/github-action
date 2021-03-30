@@ -39,7 +39,10 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.tsx?$/,
-          loader: 'ts-loader'
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
         }
       ]
     },
