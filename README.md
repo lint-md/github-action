@@ -1,5 +1,9 @@
 # @lint-md/github-action
 
+[![CI](https://github.com/lint-md/github-action/actions/workflows/build.yml/badge.svg)](https://github.com/lint-md/github-action/actions/workflows/build.yml)
+[![license](https://img.shields.io/github/license/lint-md/github-action)](./LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/lint-md/github-action)](https://github.com/lint-md/github-action/releases)
+
 > 为 [lint-md](https://github.com/lint-md/lint-md) 提供的 GitHub Action 集成，无需在 CI 中额外执行 `npm install`，开箱即用，速度更快。
 
 lint-md 是一款面向中文技术文档的 Markdown 格式检查工具，可检测空格、标点、排版等常见问题。本 Action 将其封装为可直接在 GitHub Actions 工作流中使用的步骤。
