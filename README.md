@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Lint Markdown
-        uses: lint-md/github-action@v1
+        uses: lint-md/github-action@v0.1.1
         with:
           files: './docs ./'
           configFile: '.lintmdrc'
@@ -84,7 +84,7 @@ module.exports = {
 
 ```yaml
 - name: Lint Markdown
-  uses: lint-md/github-action@v1
+  uses: lint-md/github-action@v0.1.1
   with:
     configFile: './config/.lintmdrc'
 ```
