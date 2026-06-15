@@ -11,7 +11,7 @@ jobs:
     name: test no config file
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6.0.2
 
       - name: test no config file
         uses: ./
