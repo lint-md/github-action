@@ -12,14 +12,16 @@ import * as core from '@actions/core'
 import { Lint, CliConfig } from '@lint-md/cli/lib/index'
 
 export class LintMdAction {
-  private readonly basePath: string
+  private readonly basePath!: string
   private readonly config: CliConfig
   private readonly lintFiles: string[]
-  private linter: Lint
+  private linter!: Lint
 
   constructor(basePath?: string) {
     if (!basePath) {
-      this.basePath = process.env.GITHUB_WORKSPACE
+      this.basePath = process.env.GITHUB_WORKSPACE || process.cwd()
+    } else {
+      this.basePath = basePath
     }
     this.config = this.getConfig()
     // 获取所有需要 lint 的目录，如果有多个需要以 ' ' 分割
@@ -31,7 +33,7 @@ export class LintMdAction {
 
   getConfig() {
     // 获取用户传入的配置文件目录
-    const configPath = path.resolve(process.env.GITHUB_WORKSPACE, core.getInput('configFile'))
+    const configPath = path.resolve(process.env.GITHUB_WORKSPACE || process.cwd(), core.getInput('configFile'))
     if (!fs.existsSync(configPath)) {
       core.warning('The user does not have a configuration file to pass in, we will use the default configuration instead...')
       return {}
@@ -39,7 +41,7 @@ export class LintMdAction {
 
     // JavaScript 模块，直接 require
     if (configPath.endsWith('.js')) {
-      return /*#__PURE_REQUIRE__*/ require(`${configPath}`)
+      return require(`${configPath}`)
     }
     const content = fs.readFileSync(configPath).toString()
     return JSON.parse(content)
