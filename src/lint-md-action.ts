@@ -92,7 +92,6 @@ export class LintMdAction {
   }
 
   getErrors() {
-    // @ts-ignore
     return this.linter.errorFiles
   }
 }

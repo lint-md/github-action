@@ -1,4 +1,4 @@
-import { build } from 'esbuild'
+import { build, context } from 'esbuild'
 
 const isDev = process.argv.includes('--dev')
 
@@ -6,7 +6,7 @@ const config = {
   entryPoints: ['src/index.ts'],
   bundle: true,
   platform: 'node',
-  target: 'node20',
+  target: 'node24',
   format: 'cjs',
   outfile: 'dist/index.js',
   minify: !isDev,
