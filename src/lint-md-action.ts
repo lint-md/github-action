@@ -74,6 +74,17 @@ export class LintMdAction {
     if (this.isPass()) {
       core.info('\nMarkdown Lint free! 🎉')
     } else {
+      for (const errorFile of this.getErrors()) {
+        const filePath = path.join(errorFile.path, errorFile.file)
+        for (const error of errorFile.errors) {
+          const message = `[${error.type}] ${error.text} (${filePath}:${error.start.line}:${error.start.column})`
+          if (error.level === 'error') {
+            core.error(message)
+          } else {
+            core.warning(message)
+          }
+        }
+      }
       core.setFailed('\nThere are some lint errors in your files 😭...')
     }
   }
