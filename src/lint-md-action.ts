@@ -32,19 +32,22 @@ export class LintMdAction {
   }
 
   getConfig() {
-    // 获取用户传入的配置文件目录
-    const configPath = path.resolve(process.env.GITHUB_WORKSPACE || process.cwd(), core.getInput('configFile'))
+    const configPath = path.resolve(this.basePath, core.getInput('configFile'))
     if (!fs.existsSync(configPath)) {
       core.warning('The user does not have a configuration file to pass in, we will use the default configuration instead...')
       return {}
     }
 
-    // JavaScript 模块，直接 require
     if (configPath.endsWith('.js')) {
       return require(`${configPath}`)
     }
     const content = fs.readFileSync(configPath).toString()
-    return JSON.parse(content)
+    try {
+      return JSON.parse(content)
+    } catch (e) {
+      core.warning(`Failed to parse config file: ${(e as Error).message}`)
+      return {}
+    }
   }
 
   isPass() {
