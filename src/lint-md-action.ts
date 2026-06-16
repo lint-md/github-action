@@ -9,7 +9,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as core from '@actions/core'
-import { Lint, CliConfig } from '@lint-md/cli/lib/index'
+import { Lint, CliConfig, CliLintResult } from '@lint-md/cli/lib/index'
 
 export class LintMdAction {
   private readonly basePath!: string
@@ -31,7 +31,7 @@ export class LintMdAction {
       .map(res => path.resolve(this.basePath, res))
   }
 
-  getConfig() {
+  getConfig(): CliConfig {
     const configPath = path.resolve(this.basePath, core.getInput('configFile'))
     if (!fs.existsSync(configPath)) {
       core.warning('The user does not have a configuration file to pass in, we will use the default configuration instead...')
@@ -94,7 +94,7 @@ export class LintMdAction {
     }
   }
 
-  getErrors() {
+  getErrors(): CliLintResult[] {
     return this.linter.errorFiles
   }
 }
