@@ -6,16 +6,9 @@
  * Email: yuzl1123@163.com
  */
 
-import * as core from '@actions/core'
-
-// mock GitHub action 的用户参数
-export const mockAction = (files?: string, configFile?: string, failOnWarnings?: string) => {
-  jest.mock('@actions/core')
-
-  // mock getInput method
-  // @ts-ignore
-  // eslint-disable-next-line no-import-assign
-  core.getInput = (arg) => {
+export const mockAction = (files?: string | null, configFile?: string | null, failOnWarnings?: string | null) => {
+  const core = require('@actions/core')
+  core.getInput = (arg: string) => {
     switch (arg) {
       case 'files':
         return files || './'
@@ -23,6 +16,8 @@ export const mockAction = (files?: string, configFile?: string, failOnWarnings?:
         return configFile || '.lintmdrc'
       case 'failOnWarnings':
         return failOnWarnings || 'false'
+      default:
+        return ''
     }
   }
 }

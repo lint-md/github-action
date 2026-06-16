@@ -27,7 +27,7 @@ describe('lint-md GitHub action 测试', () => {
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
     expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
-    expect(totalErrors[0].errors.map(tmp => tmp.type)).toStrictEqual([
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.type)).toStrictEqual([
       'space-round-alphabet',
       'no-empty-list'
     ])
@@ -42,11 +42,11 @@ describe('lint-md GitHub action 测试', () => {
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
     expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
-    expect(totalErrors[0].errors.map(tmp => tmp.level)).toStrictEqual([
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.level)).toStrictEqual([
       'warning',
       'error'
     ])
-    expect(totalErrors[0].errors.map(tmp => tmp.type)).toStrictEqual([
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.type)).toStrictEqual([
       'space-round-alphabet',
       'no-empty-list'
     ])
@@ -54,14 +54,14 @@ describe('lint-md GitHub action 测试', () => {
 
   test('用户在 GitHub Action 配置中传入自定义的配置文件', async () => {
     process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples', 'use-custom-config')
-    mockAction(null, 'hello')
+    mockAction(null as any, 'hello')
     const lintMdAction = new LintMdAction()
     // lint
     await lintMdAction.lint()
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
     expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
-    expect(totalErrors[0].errors.map(tmp => tmp.level)).toStrictEqual([
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.level)).toStrictEqual([
       'warning',
       'error'
     ])
@@ -69,7 +69,7 @@ describe('lint-md GitHub action 测试', () => {
 
   test('没有任何 error 而只有 warning 我们默认通过此次 ci', async () => {
     process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples', 'only-warning')
-    mockAction(null, '.lintmdrc')
+    mockAction(null as any, '.lintmdrc')
     const lintMdAction = new LintMdAction()
     // lint
     await lintMdAction.lint()
@@ -79,7 +79,7 @@ describe('lint-md GitHub action 测试', () => {
 
   test('用户在 GitHub Action 将 failOnWarnings 值设为 true，即使只有 warning 本次 ci fail', async () => {
     process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples', 'only-warning')
-    mockAction(null, '.lintmdrc', 'true')
+    mockAction(null as any, '.lintmdrc', 'true')
     const lintMdAction = new LintMdAction()
     // lint
     await lintMdAction.lint()
@@ -88,7 +88,7 @@ describe('lint-md GitHub action 测试', () => {
 
   test('用户自定义的配置文件为 JavaScript 模块', async () => {
     process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples', 'js-config')
-    mockAction(null, '.lintmdrc.js', 'true')
+    mockAction(null as any, '.lintmdrc.js', 'true')
     const lintMdAction = new LintMdAction()
     // lint
     await lintMdAction.lint()
@@ -97,7 +97,7 @@ describe('lint-md GitHub action 测试', () => {
 
   test('用户传入了多个以空格分割的检测目录', async () => {
     process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples')
-    mockAction('./js-config ./no-config-file', null, 'true')
+    mockAction('./js-config ./no-config-file', null as any, 'true')
     const lintMdAction = new LintMdAction()
     // lint
     await lintMdAction.lint()
