@@ -9,7 +9,7 @@
 import * as core from '@actions/core'
 import { LintMdAction } from './lint-md-action'
 
-const runAction = async () => {
+export const runAction = async () => {
   const lintMdAction = new LintMdAction()
   await lintMdAction.lint()
   lintMdAction
@@ -17,6 +17,8 @@ const runAction = async () => {
     .showErrorOrPassInfo()
 }
 
-runAction().catch((err: Error) => {
-  core.setFailed(err.message || 'unknown error!')
-})
+if (require.main === module) {
+  runAction().catch((err: Error) => {
+    core.setFailed(err.message || 'unknown error!')
+  })
+}

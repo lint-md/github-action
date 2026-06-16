@@ -18,11 +18,7 @@ export class LintMdAction {
   private linter!: Lint
 
   constructor(basePath?: string) {
-    if (!basePath) {
-      this.basePath = process.env.GITHUB_WORKSPACE || process.cwd()
-    } else {
-      this.basePath = basePath
-    }
+    this.basePath = basePath || process.env.GITHUB_WORKSPACE || process.cwd()
     this.config = this.getConfig()
     // 获取所有需要 lint 的目录，如果有多个需要以 ' ' 分割
     this.lintFiles = core
