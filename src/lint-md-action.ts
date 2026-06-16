@@ -67,7 +67,7 @@ export class LintMdAction {
 
   showResult() {
     if (this.linter) {
-      this.linter.printOverview()
+      this.linter.showResult()
     }
     return this
   }
