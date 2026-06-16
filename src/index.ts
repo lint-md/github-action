@@ -6,22 +6,17 @@
  * Email: yuzl1123@163.com
  */
 
+import * as core from '@actions/core'
 import { LintMdAction } from './lint-md-action'
 
 const runAction = async () => {
-  // init LintMdAction
   const lintMdAction = new LintMdAction()
-
-  // run lint
   await lintMdAction.lint()
-
-  // log info
   lintMdAction
     .showResult()
     .showErrorOrPassInfo()
 }
 
-runAction().catch(res => {
-  console.log(res)
-  throw new Error('unknown error!')
+runAction().catch((err: Error) => {
+  core.setFailed(err.message || 'unknown error!')
 })
