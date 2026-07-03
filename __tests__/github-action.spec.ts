@@ -130,7 +130,7 @@ describe('lint-md GitHub action 测试', () => {
 
   test('excludeFiles 排除指定目录', async () => {
     process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples')
-    mockAction('./*', '.lintmdrc')
+    mockAction('./', '.lintmdrc')
     const lintMdAction = new LintMdAction()
     await lintMdAction.lint()
     const errors = lintMdAction.getErrors()
