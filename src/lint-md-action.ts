@@ -36,8 +36,18 @@ async function loadMdFiles(
   excludeFiles: string[],
   extensions = ['.md', '.markdown', '.mdx']
 ): Promise<string[]> {
+  const expandedPatterns = await Promise.all(
+    [...new Set(patterns)].map(async (p) => {
+      try {
+        const stat = fs.statSync(p)
+        return stat.isDirectory() ? `${p}/**/*` : p
+      } catch {
+        return p
+      }
+    })
+  )
   const filePaths = await Promise.all(
-    [...new Set(patterns)].map(p => glob(p, { ignore: excludeFiles, absolute: true }))
+    expandedPatterns.map(p => glob(p, { ignore: excludeFiles, absolute: true }))
   )
   return [...new Set(filePaths.flat())].filter(f => extensions.some(ext => f.endsWith(ext)))
 }
