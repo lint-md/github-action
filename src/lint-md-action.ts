@@ -74,7 +74,7 @@ export class LintMdAction {
   getConfig(): LintConfig {
     const configPath = path.resolve(this.basePath, core.getInput('configFile'))
     if (!fs.existsSync(configPath)) {
-      core.warning('The user does not have a configuration file to pass in, we will use the default configuration instead...')
+      core.info('No configuration file provided, using default rules.')
       return {}
     }
 
