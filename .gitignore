@@ -2,6 +2,3 @@ node_modules
 .idea
 .vscode
 coverage
-yarn.lock
-package-lock.json
-.yarnrc.yml
