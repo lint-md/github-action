@@ -6,7 +6,6 @@
  * Email: yuzl1123@163.com
  */
 
-
 import * as path from 'path'
 
 import { LintMdAction } from '../src/lint-md-action'
@@ -27,8 +26,8 @@ describe('lint-md GitHub action 测试', () => {
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
     expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
-    expect(totalErrors[0].errors.map((tmp: any) => tmp.type)).toStrictEqual([
-      'space-round-alphabet',
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.name)).toStrictEqual([
+      'space-around-alphabet',
       'no-empty-list'
     ])
   })
@@ -42,12 +41,12 @@ describe('lint-md GitHub action 测试', () => {
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
     expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
-    expect(totalErrors[0].errors.map((tmp: any) => tmp.level)).toStrictEqual([
-      'warning',
-      'error'
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.severity)).toStrictEqual([
+      1,
+      2
     ])
-    expect(totalErrors[0].errors.map((tmp: any) => tmp.type)).toStrictEqual([
-      'space-round-alphabet',
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.name)).toStrictEqual([
+      'space-around-alphabet',
       'no-empty-list'
     ])
   })
@@ -61,9 +60,9 @@ describe('lint-md GitHub action 测试', () => {
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
     expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
-    expect(totalErrors[0].errors.map((tmp: any) => tmp.level)).toStrictEqual([
-      'warning',
-      'error'
+    expect(totalErrors[0].errors.map((tmp: any) => tmp.severity)).toStrictEqual([
+      1,
+      2
     ])
   })
 

@@ -1,6 +1,6 @@
 module.exports = {
   "excludeFiles": [],
   "rules": {
-    "space-round-alphabet": 1
+    "space-around-alphabet": 1
   }
 }

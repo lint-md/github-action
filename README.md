@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v6.0.2
 
       - name: Lint Markdown
-        uses: lint-md/github-action@v0.1.1
+        uses: lint-md/github-action@v0.2.0
         with:
           files: './docs ./'
           configFile: '.lintmdrc'
@@ -54,8 +54,8 @@ jobs:
 {
   "excludeFiles": [],
   "rules": {
-    "space-round-alphabet": 1,
-    "space-round-number": 1,
+    "space-around-alphabet": 1,
+    "space-around-number": 1,
     "no-empty-code-lang": 1,
     "no-trailing-punctuation": 1
   }
@@ -68,8 +68,8 @@ jobs:
 module.exports = {
   excludeFiles: [],
   rules: {
-    "space-round-alphabet": 1,
-    "space-round-number": 1,
+    "space-around-alphabet": 1,
+    "space-around-number": 1,
     "no-empty-code-lang": 1,
     "no-trailing-punctuation": 1
   }
@@ -84,7 +84,7 @@ module.exports = {
 
 ```yaml
 - name: Lint Markdown
-  uses: lint-md/github-action@v0.1.1
+  uses: lint-md/github-action@v0.2.0
   with:
     configFile: './config/.lintmdrc'
 ```
