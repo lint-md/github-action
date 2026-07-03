@@ -1,6 +1,6 @@
 {
   "name": "@lint-md/github-action",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "github action for lint-md",
   "main": "dist/index.js",
   "scripts": {

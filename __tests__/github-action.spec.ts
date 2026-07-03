@@ -105,4 +105,37 @@ describe('lint-md GitHub action 测试', () => {
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(2)
   })
+
+  test('目录递归展开：files 为目录时自动扫描子目录', async () => {
+    process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples')
+    mockAction('./no-config-file ./use-config-file')
+    const lintMdAction = new LintMdAction()
+    await lintMdAction.lint()
+    const errors = lintMdAction.getErrors()
+    expect(errors.length).toStrictEqual(2)
+    expect(errors.every(e => e.path.endsWith('bad.md'))).toBe(true)
+  })
+
+  test('glob pattern 匹配：files 为具体文件路径', async () => {
+    process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples')
+    mockAction('./no-config-file/bad.md')
+    const lintMdAction = new LintMdAction()
+    await lintMdAction.lint()
+    const errors = lintMdAction.getErrors()
+    expect(errors.length).toStrictEqual(1)
+    expect(errors[0].path).toStrictEqual(
+      path.resolve(process.cwd(), 'examples', 'no-config-file', 'bad.md')
+    )
+  })
+
+  test('excludeFiles 排除指定目录', async () => {
+    process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples')
+    mockAction('./*', '.lintmdrc')
+    const lintMdAction = new LintMdAction()
+    await lintMdAction.lint()
+    const errors = lintMdAction.getErrors()
+    const paths = errors.map(e => e.path)
+    expect(paths.every(p => !p.includes('only-warning'))).toBe(true)
+    expect(errors.length).toBeGreaterThan(0)
+  })
 })

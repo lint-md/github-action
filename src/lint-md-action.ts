@@ -102,6 +102,7 @@ export class LintMdAction {
   }
 
   async lint() {
+    this.fileResults = []
     const mdFiles = await loadMdFiles(
       this.lintFiles,
       this.config.excludeFiles || [],
