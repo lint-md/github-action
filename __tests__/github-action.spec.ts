@@ -25,7 +25,7 @@ describe('lint-md GitHub action 测试', () => {
     lintMdAction.showErrorOrPassInfo()
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
-    expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
+    expect(totalErrors[0].path).toStrictEqual(path.resolve(process.env.GITHUB_WORKSPACE!, 'bad.md'))
     expect(totalErrors[0].errors.map((tmp: any) => tmp.name)).toStrictEqual([
       'space-around-alphabet',
       'no-empty-list'
@@ -40,7 +40,7 @@ describe('lint-md GitHub action 测试', () => {
     await lintMdAction.lint()
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
-    expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
+    expect(totalErrors[0].path).toStrictEqual(path.resolve(process.env.GITHUB_WORKSPACE!, 'bad.md'))
     expect(totalErrors[0].errors.map((tmp: any) => tmp.severity)).toStrictEqual([
       1,
       2
@@ -59,7 +59,7 @@ describe('lint-md GitHub action 测试', () => {
     await lintMdAction.lint()
     const totalErrors = lintMdAction.getErrors()
     expect(totalErrors.length).toStrictEqual(1)
-    expect(totalErrors[0].path).toStrictEqual(process.env.GITHUB_WORKSPACE)
+    expect(totalErrors[0].path).toStrictEqual(path.resolve(process.env.GITHUB_WORKSPACE!, 'bad.md'))
     expect(totalErrors[0].errors.map((tmp: any) => tmp.severity)).toStrictEqual([
       1,
       2
