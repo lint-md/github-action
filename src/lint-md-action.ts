@@ -129,20 +129,21 @@ export class LintMdAction {
   }
 
   showErrorOrPassInfo() {
-    if (this.isPass()) {
-      core.info('\nMarkdown Lint free! 🎉')
-    } else {
-      for (const fileResult of this.fileResults) {
-        for (const error of fileResult.errors) {
-          const message = `[${error.name}] ${error.message} (${fileResult.path}:${error.loc.start.line}:${error.loc.start.column})`
-          if (error.severity === 2) {
-            core.error(message)
-          } else {
-            core.warning(message)
-          }
+    for (const fileResult of this.fileResults) {
+      for (const error of fileResult.errors) {
+        const message = `[${error.name}] ${error.message} (${fileResult.path}:${error.loc.start.line}:${error.loc.start.column})`
+        if (error.severity === 2) {
+          core.error(message)
+        } else {
+          core.warning(message)
         }
       }
-      core.setFailed('\nThere are some lint errors in your files 😭...')
+    }
+
+    if (this.isPass()) {
+      core.info('\nMarkdown lint passed! 🎉')
+    } else {
+      core.setFailed('\nThere are lint issues in your files 😭...')
     }
   }
 

@@ -7,6 +7,7 @@
  */
 
 import * as path from 'path'
+import * as core from '@actions/core'
 
 import { LintMdAction } from '../src/lint-md-action'
 
@@ -14,6 +15,10 @@ import { mockAction } from '../src/test-utils'
 
 
 describe('lint-md GitHub action 测试', () => {
+
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
 
   test('用户工作目录下没有任何配置文件', async () => {
     process.env.GITHUB_WORKSPACE = path.resolve(process.cwd(), 'examples', 'no-config-file')
@@ -73,7 +78,12 @@ describe('lint-md GitHub action 测试', () => {
     // lint
     await lintMdAction.lint()
     lintMdAction.showResult()
+    lintMdAction.showErrorOrPassInfo()
     expect(lintMdAction.isPass()).toStrictEqual(true)
+    expect(core.warning).toHaveBeenCalledWith(expect.stringContaining('[space-around-alphabet]'))
+    expect(core.error).not.toHaveBeenCalled()
+    expect(core.setFailed).not.toHaveBeenCalled()
+    expect(core.info).toHaveBeenCalledWith('\nMarkdown lint passed! 🎉')
   })
 
   test('用户在 GitHub Action 将 failOnWarnings 值设为 true，即使只有 warning 本次 ci fail', async () => {
@@ -82,7 +92,11 @@ describe('lint-md GitHub action 测试', () => {
     const lintMdAction = new LintMdAction()
     // lint
     await lintMdAction.lint()
+    lintMdAction.showErrorOrPassInfo()
     expect(lintMdAction.isPass()).toStrictEqual(false)
+    expect(core.warning).toHaveBeenCalledWith(expect.stringContaining('[space-around-alphabet]'))
+    expect(core.error).not.toHaveBeenCalled()
+    expect(core.setFailed).toHaveBeenCalledWith('\nThere are lint issues in your files 😭...')
   })
 
   test('用户自定义的配置文件为 JavaScript 模块', async () => {
