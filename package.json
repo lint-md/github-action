@@ -1,6 +1,6 @@
 {
   "name": "@lint-md/github-action",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "github action for lint-md",
   "main": "dist/index.js",
   "scripts": {
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^9.1.1",
-    "@lint-md/core": "^2.1.2",
+    "@lint-md/core": "^2.3.0",
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.61.0",
     "@typescript-eslint/parser": "^8.61.0",

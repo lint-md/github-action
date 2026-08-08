@@ -9,7 +9,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as core from '@actions/core'
-import { lintMarkdown, LintMdRulesConfig } from '@lint-md/core'
+import { lintMarkdown, type LintMdRulesConfig, type LintReportItem } from '@lint-md/core'
 import { glob } from 'glob'
 
 interface LintConfig {
@@ -18,17 +18,9 @@ interface LintConfig {
   extensions?: string[]
 }
 
-interface LintResultItem {
-  loc: { start: { line: number; column: number }; end: { line: number; column: number } }
-  message: string
-  name: string
-  content: string
-  severity: number
-}
-
 interface FileLintResult {
   path: string
-  errors: LintResultItem[]
+  errors: LintReportItem[]
 }
 
 async function loadMdFiles(
@@ -120,7 +112,7 @@ export class LintMdAction {
       if (result.lintResult.length > 0) {
         this.fileResults.push({
           path: file,
-          errors: result.lintResult as LintResultItem[],
+          errors: result.lintResult,
         })
       }
     }

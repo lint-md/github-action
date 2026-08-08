@@ -37,4 +37,20 @@ describe('lint 继承对象测试集合', () => {
       'warning': 0
     })
   })
+
+  test('支持 core 2.3.0 新增规则', () => {
+    const result = lintMarkdown(
+      '第一行\n第二行含有[链接](https://example.com)文字\n\n\n结尾',
+      {
+        'require-trailing-spaces': 2,
+        'space-around-link': 2,
+        'no-multiple-blank-lines': 2
+      },
+      false
+    )
+
+    expect(new Set(result.lintResult.map(item => item.name))).toStrictEqual(
+      new Set(['require-trailing-spaces', 'space-around-link', 'no-multiple-blank-lines'])
+    )
+  })
 })

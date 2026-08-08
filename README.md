@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v6.0.2
 
       - name: Lint Markdown
-        uses: lint-md/github-action@v0.2.0
+        uses: lint-md/github-action@v0.3.0
 ```
 
 这会使用默认规则检查当前目录下的所有 Markdown 文件。
@@ -46,7 +46,7 @@ jobs:
 
 ```yaml
 - name: Lint Markdown
-  uses: lint-md/github-action@v0.2.0
+  uses: lint-md/github-action@v0.3.0
   with:
     files: './docs ./src ./README.md'
 ```
@@ -55,7 +55,7 @@ jobs:
 
 ```yaml
 - name: Lint Markdown
-  uses: lint-md/github-action@v0.2.0
+  uses: lint-md/github-action@v0.3.0
   with:
     configFile: './config/.lintmdrc'
 ```
@@ -64,7 +64,7 @@ jobs:
 
 ```yaml
 - name: Lint Markdown
-  uses: lint-md/github-action@v0.2.0
+  uses: lint-md/github-action@v0.3.0
   with:
     failOnWarnings: 'true'
 ```
@@ -82,7 +82,7 @@ jobs:
     "space-around-alphabet": 1,
     "space-around-number": 1,
     "no-empty-code-lang": 2,
-    "no-trailing-punctuation": 2
+    "correct-title-trailing-punctuation": 2
   }
 }
 ```
@@ -96,7 +96,7 @@ module.exports = {
     "space-around-alphabet": 1,
     "space-around-number": 1,
     "no-empty-code-lang": 2,
-    "no-trailing-punctuation": 2
+    "correct-title-trailing-punctuation": 2
   }
 }
 ```
@@ -110,9 +110,27 @@ module.exports = {
 
 ### 规则值含义
 
-- `0` — 关闭规则
-- `1` — 作为警告（不影响退出码，除非 `failOnWarnings: 'true'`）
-- `2` — 作为错误（会使 Action 失败）
+`rules` 对象的键是规则名。值是该规则的检查级别。
+
+| 值 | 级别 | Action 行为 |
+| --- | --- | --- |
+| `0` | 关闭 | 不执行该规则，也不产生检查结果 |
+| `1` | 警告 | 将问题标记为警告。Action 默认成功 |
+| `2` | 错误 | 将问题标记为错误。Action 失败 |
+
+当 `failOnWarnings: 'true'` 时，级别 `1` 也会使 Action 失败。
+此设置不会把警告转换为错误。
+
+例如，以下配置将空列表项视为错误，将中英文间距问题视为警告：
+
+```json
+{
+  "rules": {
+    "space-around-alphabet": 1,
+    "no-empty-list": 2
+  }
+}
+```
 
 ## 可用规则
 
@@ -135,6 +153,12 @@ module.exports = {
 | `no-special-characters` | 禁止特殊字符 |
 | `use-standard-ellipsis` | 使用标准省略号 |
 | `correct-title-trailing-punctuation` | 标题结尾标点符号检查 |
+| `require-trailing-spaces` | 软换行前需要两个空格 |
+| `space-around-link` | 链接与正文之间需要空格 |
+| `no-multiple-blank-lines` | 连续空白行最多保留一行 |
+
+`require-trailing-spaces`、`space-around-link` 和 `no-multiple-blank-lines` 默认关闭。
+请在配置文件中显式启用它们。
 
 完整规则列表请参考 [lint-md 文档](https://github.com/lint-md/lint-md#rules-%E9%85%8D%E7%BD%AE)。
 
@@ -157,7 +181,7 @@ jobs:
         uses: actions/checkout@v6.0.2
 
       - name: Lint Markdown
-        uses: lint-md/github-action@v0.2.0
+        uses: lint-md/github-action@v0.3.0
         with:
           files: './docs ./README.md'
           configFile: '.lintmdrc'
