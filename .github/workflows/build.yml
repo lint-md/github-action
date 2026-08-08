@@ -2,18 +2,24 @@ name: build
 
 on: [ pull_request ]
 
+permissions:
+  contents: read
+
 jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install modules
         run: npm ci
 
       - name: Audit dependencies
-        uses: OWASP/cve-lite-cli@v1
+        uses: OWASP/cve-lite-cli@32c21bb9c73050bc177b563633b3fe684825517c # v1.28.0
         with:
+          version: '1.28.0'
           all: 'true'
           verbose: 'true'
           fail-on: medium
